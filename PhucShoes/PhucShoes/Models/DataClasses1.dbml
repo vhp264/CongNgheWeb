@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_BanGiay" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-GCD5IJT4\SQLEXPRESS;Initial Catalog=QL_BanGiay;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QL_BanGiayConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Giay" Member="Giays">
+    <Type Name="Giay">
+      <Column Name="MaGiay" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenGiay" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GiaBan" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="MaHang" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="AnhGiay" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="HangGiay_Giay" Member="HangGiay" ThisKey="MaHang" OtherKey="MaHang" Type="HangGiay" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HangGiay" Member="HangGiays">
+    <Type Name="HangGiay">
+      <Column Name="MaHang" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenHang" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Logo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="HangGiay_Giay" Member="Giays" ThisKey="MaHang" OtherKey="MaHang" Type="Giay" />
+    </Type>
+  </Table>
+</Database>
